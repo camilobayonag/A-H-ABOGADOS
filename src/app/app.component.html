@@ -1,21 +1,84 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class = "container-fluid h-100 p-0 m-0">
+  <div class = "row p-0 m-0 h-100">
+    <div class = "col-lg-3 m-0 p-0">
+      <div class = "banner-menu shadow">
+        <div class = "row p-0 m-0 mb-4 mb-md-3">
+          <div class = "col">
+            <div class = "row justify-content-center">
+              <img src = "/assets/img/lawyer1.png">
+            </div>
+            <div class = "row justify-content-center mt-2">
+              <h5>Raúl Correa</h5>
+            </div>
+          </div>
+        </div>
+        <div class = "row m-0 p-0 justify-content-center">
+          <ul id = "menu-pricnipal" class = "nav flex-column">
+            <li class = "nav-item" routerLinkActive = "active">
+              <a class = "nav-link" routerLink = "home"><i class = "fa fa-home"></i>Inicio</a>
+              <div class = "underline"></div>
+            </li>
+            <!--
+            <li class = "nav-item" routerLinkActive = "active">
+              <a class = "nav-link" href = "#" routerLink = "calendar"><i
+                class = "fa fa-calendar"></i>Agenda</a>
+              <div class = "underline"></div>
+            </li>
+            <li class = "nav-item" routerLinkActive = "active">
+              <a class = "nav-link" routerLink = "process"><i class = "fa fa-file-text"></i>Procesos</a>
+              <div class = "underline"></div>
+            </li>
+            <li class = "nav-item" routerLinkActive = "active">
+              <a class = "nav-link" routerLink = "lawyers"><i class = "fa fa-gavel"></i>Abogados</a>
+              <div class = "underline"></div>
+            </li>
+            -->
+            <li class = "nav-item" routerLinkActive = "active">
+              <a class = "nav-link" routerLink="customers"><i class = "fa fa-users"></i>Clientes</a>
+              <div class = "underline"></div>
+            </li>
+            <li class = "nav-item" routerLinkActive = "active">
+              <a class = "nav-link" href = "#"><i class = "fa fa-user"></i> Perfil</a>
+              <div class = "underline"></div>
+            </li>
+            <li class = "nav-item" routerLinkActive = "active">
+              <a class = "nav-link" routerLink="new-customer"><i class = "fa fa-briefcase"></i> Perfil</a>
+              <div class = "underline"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class = "col-lg-9 p-0 m-0 h-100">
+      <div class = "row p-0 m-0">
+        <div class = "menu-2 shadow">
+          <ul class = "nav h-100 d-flex align-items-center float-right mr-5">
+            <li class = "rounded-circle d-flex align-items-center circle-notification mr-5">
+              <a><i class="fa fa-bell"></i></a>
+            </li>
+            <li class = "rounded-circle d-flex align-items-center circle-perfil ">
+              <p class = "text-icon-perfil">R</p>
+            </li>
+            <li class = "nav-item dropdown">
+              <a class = "nav-link dropdown-toggle text-perfil" data-toggle = "dropdown" href = "#" role = "button"
+                 aria-haspopup = "true"
+                 aria-expanded = "false">Raúl Correa</a>
+              <div class = "dropdown-menu">
+                <a class = "dropdown-item" href = "#">Salir</a>
+                <a class = "dropdown-item" href = "#">Salir</a>
+                <a class = "dropdown-item" href = "#">Salir</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class = "row continer-app">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
-<router-outlet></router-outlet>
+
+
+

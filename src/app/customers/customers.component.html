@@ -1,0 +1,147 @@
+<div class = "container">
+  <div class = "row p-0 m-0">
+    <div class = "col-lg-12 p-0 m-0 mt-4 ">
+      <!--
+      <h3 class = "float-left">Clientes</h3>
+      -->
+      <div class = "float-left h-100 d-flex align-items-center">
+        <div class="input-group search-box">
+          <input type="text" class="form-control form-control-lg" placeholder="Buscar Cliente"/>
+          <button class="btn btn-info" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+      <div class = "float-right h-100 d-flex align-items-center">
+        <button class="h-100 btn-lg new-customer" data-toggle="modal" href="#typeNewClientModal">Nuevo Cliente</button>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class = "row p-1 m-1 table-responsive">
+    <table>
+      <!--
+      <thead>
+        <tr class = "col-lg-12 p-6 m-5 mt-4 ">
+          <th scope="col" style="width:  36%">Cliente<a class="ml-1"><i class="fa fa-sort"></i></a></th>
+          <th scope="col" style="width:  18%">Correo<a class="ml-1"><i class="fa fa-sort"></i></a></th>
+          <th scope="col" style="width:  18%">Tel&eacute;fono<a class="ml-1"><i class="fa fa-sort"></i></a></th>
+          <th scope="col" style="width:  18%" >Direcci&oacute;n<a class="ml-1"><i class="fa fa-sort"></i></a></th>
+          <th scope="col" style="width:  102px">Actualizar</th>
+        </tr>
+      </thead>
+      -->
+      <thead>
+      <tr class = "col-lg-12 p-6 m-5 mt-4 ">
+        <th scope="col">Cliente<a class="ml-1"><i class="fa fa-sort"></i></a></th>
+        <th scope="col">Correo<a class="ml-1"><i class="fa fa-sort"></i></a></th>
+        <th scope="col">Tel&eacute;fono<a class="ml-1"><i class="fa fa-sort"></i></a></th>
+        <th scope="col">Direcci&oacute;n<a class="ml-1"><i class="fa fa-sort"></i></a></th>
+        <th scope="col">Actualizar</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let customer of customerService.customers" class="shadow-sm">
+          <td scope="row" class="float-left">
+            <ul class = "nav h-100 d-flex align-items-center">
+              <li class = "square d-flex float-left">
+                <p class="text-icon-customer">{{customer.name.charAt(0)}}</p>
+              </li>
+              <li>{{customer.name}}</li>
+            </ul>
+          </td>
+          <td>{{customer.email}}</td>
+          <td>{{customer.telephoneNumber}}</td>
+          <td>{{customer.address}}</td>
+          <td class="align-items-center">
+            <ul class = "nav h-100 d-flex align-items-center float-left">
+              <li class = "nav-item pr-2">
+                <a class = "rounded-circle d-flex align-items-center circle-options" href="#" role="button">
+                  <i class = "fa fa-check w-100"></i>
+                </a>
+              </li>
+              <li class = "nav-item pl-2">
+                <a class = "rounded-circle d-flex align-items-center circle-options" href="#" role="button">
+                  <i class = "fa fa-eye w-100"></i>
+                </a>
+              </li>
+              <li class = "nav-item pl-2">
+                <a class = "rounded-circle d-flex align-items-center circle-options" href="#" role="button">
+                  <i class = "fa fa-pencil w-100"></i>
+                </a>
+              </li>
+            </ul>
+          </td>
+        </tr>
+     <!--
+        <tr class="shadow-sm">
+          <td class="">
+            <ul class = "nav h-100 d-flex align-items-center">
+              <li class = "square d-flex float-left">
+                <p class="text-icon-new-customer"> B </p>
+              </li>
+              <li class="float-right">Brhadaranyakopanishadvivekachudamani Erreh Muñoz Castillo</li>
+            </ul>
+          </td>
+          <td>usuario@gmail.com</td>
+          <td>555555555555</td>
+          <td >Avenida Central del Norte 39-115</td>
+          <td  class="align-items-center">
+            <ul class = "nav h-100 d-flex align-items-center float-left">
+              <li class = "nav-item pr-2">
+                <a class = "rounded-circle d-flex align-items-center circle-options" href="#" role="button">
+                  <i class = "fa fa-check w-100"></i>
+                </a>
+              </li>
+              <li class = "nav-item pl-2">
+                <a class = "rounded-circle d-flex align-items-center circle-options" href="#" role="button">
+                  <i class = "fa fa-eye w-100"></i>
+                </a>
+              </li>
+            </ul>
+          </td>
+        </tr>
+  -->
+      </tbody>
+    </table>
+  </div>
+  <div class="pagination-customer float-right">
+    <nav aria-label="page-navegation-customer">
+      <ul class="pagination pagination-circle pg-blue">
+        <li class="page-item disabled previous-next-pages">
+          <a class="page-link fa fa-chevron-left"></a>
+        </li>
+        <li class="page-item active page"><a class="page-link">1</a></li>
+        <li class="page-item page"><a class="page-link">2</a></li>
+        <li class="page-item page"><a class="page-link">3</a></li>
+        <li class="page-item page"><a class="page-link">4</a></li>
+        <li class="page-item page"><a class="page-link">5</a></li>
+        <li class="page-item previous-next-pages">
+          <a class="page-link fa fa-chevron-right"></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="modal fade " id="typeNewClientModal" tabindex="-1" role="dialog" aria-labelledby="typeNewClientLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">TIPO DE CLIENTE</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" >&times;</span>
+          </button>
+        </div>
+        <div class="nav modal-body justify-content-center " routerLinkActive="active">
+          <button class="nav-link w-50 h-100 mr-4" routerLink = "new-customer">
+            <i class="fa fa-user fa-5x"></i>
+            <br><span>NATURAL</span>
+          </button>
+          <button class="nav-link w-50 h-100 ml-4" routerLink = "new-customer">
+            <i class="fa fa-briefcase fa-5x"></i>
+            <br><span>LEGAL</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

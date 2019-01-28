@@ -23,9 +23,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/fontawesome.css",
+              "src/assets/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery-3.3.1.min.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -48,7 +54,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumsError": "5mb"
                 }
               ]
             }

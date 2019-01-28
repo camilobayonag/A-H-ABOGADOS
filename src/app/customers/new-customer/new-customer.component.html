@@ -1,0 +1,59 @@
+<div class="container" >
+  <div class = "row p-2 mt-4 m-1 title shadow" aria-labelledby="newClientLabel" aria-hidden="true">
+    <button type="button" class="fa fa-long-arrow-right float-left" >
+      <span aria-hidden="true"></span>
+    </button>
+    <h3>Nuevo cliente</h3>
+  </div>
+  <div class="fomr row p-2 mt-3 m-1 shadow">
+    <form #customerForm = "ngForm" (ngSubmit) = "actionOnSubmit(customerForm)" >
+      <div class="row p-0 m-0">
+        <div class="col-lg-auto m-1 pt-3 pb-2">
+          <h6>Nombre</h6>
+          <input type="text" class="form-control" name = "name" #name = "ngModel"
+            [(ngModel)] = "customerService.selectedCustomer.name" placeholder = "Nombre">
+        </div>
+        <div class="col-lg-auto m-1 pt-3 pb-2">
+          <h6>Apellido</h6>
+          <input type="text" class="form-control" name = "lastName" #lastName = "ngModel"
+                 [(ngModel)] = "customerService.selectedCustomer.lastName" placeholder = "Apellido">
+        </div>
+        <div class="col-md-auto m-1 pt-3 pb-2">
+          <h6>Tipo de documento</h6>
+          <!--Menu de tipo de documento: C.C-->
+        </div>
+        <div class="col-md-auto m-1 pt-3 pb-2">
+          <h6>Documento</h6>
+          <input type="text" class="form-control" name = "_id" #_id = "ngModel"
+            [(ngModel)] = "customerService.selectedCustomer._id" placeholder = "N&uacute;mero de documento">
+        </div>
+        <div class="col-md-auto m-1 pt-3 pb-2">
+          <h6>Pais</h6>
+          <!--Menu pais-->
+        </div>
+        <div class="col-md-auto m-1 pt-3 pb-2">
+          <h6>Ciudad</h6>
+          <!--Menu ciudad-->
+        </div>
+        <div class="col-md-auto m-1 pt-3 pb-2">
+          <h6>Direcci&oacute;n</h6>
+          <input type="text" class="form-control" name = "address" #address = "ngModel"
+                 [(ngModel)] = "customerService.selectedCustomer.address" placeholder = "Direcci&oacute;n">
+        </div>
+        <div class="col-lg-auto m-1 pt-3 pb-2">
+          <h6>Correo electronico</h6>
+          <input type="text" class="form-control" name = "email" #email = "ngModel"
+             [(ngModel)] = "customerService.selectedCustomer.email" placeholder = "Correo electr&oacute;nico">
+        </div>
+        <div class="col-md-auto m-1 pt-3 pb-2">
+          <h6>Tel&eacute;fono</h6>
+          <input type="text" class="form-control" name = "telephoneNumber" #telephoneNumber = "ngModel"
+             [(ngModel)] = "customerService.selectedCustomer.telephoneNumber" placeholder = "N&uacute;mero de contacto">
+        </div>
+      </div>
+      <div class="row p-3 m-1 justify-content-center">
+        <button type="button" class="btn btn-success" onclick="addCustomer(customerForm); customerForm.control.markAsTouched()">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>

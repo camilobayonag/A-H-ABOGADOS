@@ -1,0 +1,136 @@
+.banner-menu {
+  position: fixed;
+  background-color: white;
+  width: 25%;
+  height: 100%;
+  z-index: 1;
+}
+
+.banner-menu img {
+  width: 200px;
+  height: 200px;
+  margin-top: 100px;
+}
+
+.banner-menu h5 {
+  color: var(--color-primary);
+  font-size: 1.8vw;
+}
+
+#menu-pricnipal > li {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+#menu-pricnipal > li a {
+  width: 100%;
+  font-size: 1.5vw;
+  color: var(--color-text-primary);
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.8s;
+}
+
+#menu-pricnipal a i {
+  margin-right: 30px;
+}
+
+#menu-pricnipal .underline {
+  height: 3px;
+  background-color: transparent;
+  width: 0%;
+  transition: width 0.2s, background-color 0.5s;
+  margin: 0 auto;
+}
+
+#menu-pricnipal li.active .underline {
+  width: 100%;
+  background-color: var(--color-primary);
+}
+
+#menu-pricnipal li.active a,
+#menu-pricnipal li:hover a {
+  color: var(--color-primary);
+}
+
+#menu-pricnipal li:hover .underline {
+  width: 100%;
+  background-color: var(--color-primary);
+}
+
+#menu-pricnipal li:active a,
+#menu-pricnipal li:active .underline {
+  transition: none;
+  color: var(--color-primary);
+}
+
+.menu-2 {
+  position: fixed;
+  background-color: white;
+  width: 75% !important;
+  height: 80px;
+  margin: 0 3px;
+  padding: 0;
+  z-index: 1;
+}
+
+.menu-2 a {
+  color: var(--color-text-primary);
+}
+
+.dropdown-toggle:after {
+  color: var(--color-primary);
+}
+
+.circle-perfil,
+.circle-notification {
+  background-color: var(--color-primary);
+  min-width: 30px;
+  width: 50px;
+  min-height: 50px;
+  text-align: center;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.21);
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.21);
+}
+
+.circle-notification {
+  background-color: var(--color-text-primary);
+}
+
+.circle-notification > a {
+  width: 100%;
+  text-align: center;
+}
+
+.circle-notification > a > i {
+  font-size: 1.5vw;
+  color: white;
+}
+
+.text-icon-perfil {
+  margin: 0 auto;
+  color: white;
+  font-size: 1.8vw;
+}
+
+.text-perfil {
+  font-size: 1.2vw;
+}
+
+.continer-app {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 80px 0 0 0;
+  display: inline-block;
+}
+
+@media screen and (max-width: 1400px) {
+  .banner-menu img {
+    width: 150px;
+    height: 150px;
+    margin-top: 80px;
+  }
+}
