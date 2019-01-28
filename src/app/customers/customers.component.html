@@ -54,19 +54,21 @@
           <td>{{customer.telephoneNumber}}</td>
           <td>{{customer.address}}</td>
           <td class="align-items-center">
-            <ul class = "nav h-100 d-flex align-items-center float-left">
+            <ul class = "nav h-100 d-flex align-items-center float-left" routerLinkActive="active">
               <li class = "nav-item pr-2">
-                <a class = "rounded-circle d-flex align-items-center circle-options" href="#" role="button">
+                <a class = "rounded-circle d-flex align-items-center circle-options" onclick="changeStatus(customer)" role="button">
                   <i class = "fa fa-check w-100"></i>
                 </a>
               </li>
               <li class = "nav-item pl-2">
-                <a class = "rounded-circle d-flex align-items-center circle-options" href="#" role="button">
+                <a class = "rounded-circle d-flex align-items-center circle-options"  data-dismiss="modal"
+                   [routerLink] ="['edit-customer',customer._id]" role="button">
                   <i class = "fa fa-eye w-100"></i>
                 </a>
               </li>
               <li class = "nav-item pl-2">
-                <a class = "rounded-circle d-flex align-items-center circle-options" href="#" role="button">
+                <a class = "rounded-circle d-flex align-items-center circle-options"  data-dismiss="modal"
+                   [routerLink] ="['customer-detail',customer._id]" role="button">
                   <i class = "fa fa-pencil w-100"></i>
                 </a>
               </li>
@@ -132,11 +134,11 @@
           </button>
         </div>
         <div class="nav modal-body justify-content-center " routerLinkActive="active">
-          <button class="nav-link w-50 h-100 mr-4" routerLink = "new-customer">
+          <button class="nav-link w-50 h-100 mr-4" [routerLink] ="['new-customer','N']">
             <i class="fa fa-user fa-5x"></i>
             <br><span>NATURAL</span>
           </button>
-          <button class="nav-link w-50 h-100 ml-4" routerLink = "new-customer">
+          <button class="nav-link w-50 h-100 ml-4" [routerLink] = "['new-customer','L']">
             <i class="fa fa-briefcase fa-5x"></i>
             <br><span>LEGAL</span>
           </button>

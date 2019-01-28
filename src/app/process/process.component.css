@@ -1,0 +1,112 @@
+.square_add{
+  background-color: var(--color-primary);
+  text-decoration: none;
+  padding-top:0.5%;
+  padding-bottom: 0.5%;
+  padding-left: 3%;
+  padding-right: 3% ;
+//font-weight: 600;
+// font-size: 20px;
+  margin-right: 2%;
+  color: #ffffff !important;
+//border-radius: 6px;
+  float: right;
+// border: 2px solid #0016b0;
+
+}
+
+
+hr {
+  margin-top: 10px;
+  border: 1px solid var(--color-primary);
+  width: 99%;
+}
+.searchbar{
+  margin-left: 2% ;
+  height: 100%;
+  width: 40%;
+  background-color:var(--color-font-primary);
+}
+.searchbar > .search_input{
+  width: 80%;
+  background-color: #ffffff;
+  height: 100%;
+  border: none;
+}
+
+.searchbar > .search_icon{
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.search_icon{
+  height: 100%;
+  width: 19%;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#ffffff;
+}
+.pagination_end i  {
+  color: var(--color-primary) !important;
+  --color-font: var(--color-primary);
+}
+.pagination_end{
+  float: right;
+  margin-right: 2%;
+}
+.pagination_end li  {
+  color: var(--color-primary) !important;
+  --color-font: var(--color-primary);
+}
+.page-item .page-link a li span{
+
+  color: var(--color-primary) !important;
+  --color-font: white!important;
+}
+.page-item .page-link{
+  border-radius: 50%;
+  /*
+  background-color: var(--color-primary);
+  */
+  --color-font: white !important; ;
+
+}
+.page-link>.active{
+  background-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.header_table th {
+  color: #D4D4D4 !important;
+  border: none;
+  font-style: inherit;
+  font-weight: normal;
+}
+.fa-check-circle{
+  color: var(--color-primary);
+  font-size: 150%;
+  float: left;
+}
+.fa-pencil{
+  color: var(--color-primary);
+  float: left;
+  font-size: 150%;
+  margin-left:13%;
+  padding: 0;
+
+}
+.active{
+  color: var(--color-primary) !important;
+}
+.active > a,
+.active > a:hover,
+.active > a:focus {
+  color: white;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+
+}
+.next-and-previous-page{
+  border-color: var(--color-font)
+}

@@ -42,8 +42,8 @@ export class CustomersComponent implements OnInit {
       });
   }
 
-  editCustomers(employee: CustomerModel) {
-    this.customerService.selectedCustomer = employee;
+  editCustomers(customer: CustomerModel) {
+    this.customerService.selectedCustomer = customer;
     // this.employeeService.putEmployee(employee._id);
   }
 

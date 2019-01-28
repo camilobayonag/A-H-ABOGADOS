@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NewCustomerComponent} from './customers/new-customer/new-customer.component';
 
 const routes: Routes = [
-  {path: 'customers/new-customer', component: NewCustomerComponent},
+  {path: 'customers/new-customer/:typeCustomer', component: NewCustomerComponent},
 ];
 
 @NgModule({

@@ -1,8 +1,9 @@
 <div class="container" >
-  <div class = "row p-2 mt-4 m-1 title shadow" aria-labelledby="newClientLabel" aria-hidden="true">
-    <button type="button" class="fa fa-long-arrow-right float-left" >
-      <span aria-hidden="true"></span>
-    </button>
+  <div class = "row p-2 mt-4 m-1 title shadow" aria-labelledby="newClientLabel" aria-hidden="true"
+       routerLinkActive="active">
+    <a class = "d-flex align-items-center mr-2" routerLink ="customers" role="button">
+      <i class = "fa fa-arrow-left w-100"></i>
+    </a>
     <h3>Nuevo cliente</h3>
   </div>
   <div class="fomr row p-2 mt-3 m-1 shadow">
@@ -13,7 +14,9 @@
           <input type="text" class="form-control" name = "name" #name = "ngModel"
             [(ngModel)] = "customerService.selectedCustomer.name" placeholder = "Nombre">
         </div>
-        <div class="col-lg-auto m-1 pt-3 pb-2">
+        <div
+          *ngIf="costumerService.selectedCustomer.typeCustomer == 'N'"
+             class="col-lg-auto m-1 pt-3 pb-2">
           <h6>Apellido</h6>
           <input type="text" class="form-control" name = "lastName" #lastName = "ngModel"
                  [(ngModel)] = "customerService.selectedCustomer.lastName" placeholder = "Apellido">
@@ -52,7 +55,10 @@
         </div>
       </div>
       <div class="row p-3 m-1 justify-content-center">
-        <button type="button" class="btn btn-success" onclick="addCustomer(customerForm); customerForm.control.markAsTouched()">Guardar</button>
+        <button type="button" class="btn saveButton" onclick="addCustomer(customerForm); customerForm.control.markAsTouched()">
+          <i class="fa fa-plus mr-2"></i>
+          <span>Guardar</span>
+        </button>
       </div>
     </form>
   </div>
