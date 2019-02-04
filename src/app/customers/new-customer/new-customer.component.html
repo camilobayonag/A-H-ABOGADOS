@@ -1,61 +1,95 @@
-<div class="container" >
-  <div class = "row p-2 mt-4 m-1 title shadow" aria-labelledby="newClientLabel" aria-hidden="true"
-       routerLinkActive="active">
-    <a class = "d-flex align-items-center mr-2" routerLink ="customers" role="button">
-      <i class = "fa fa-arrow-left w-100"></i>
+<div class="container">
+  <div class = "row p-2 mt-4 m-1 title shadow w-100" aria-labelledby="newClientLabel" aria-hidden="true">
+    <a class = "d-flex align-items-center mr-2" onclick="goToCustomers()" role="button"
+      routerLinkActive="active">
+      <i class = "fa fa-arrow-left"></i>
     </a>
     <h3>Nuevo cliente</h3>
   </div>
   <div class="fomr row p-2 mt-3 m-1 shadow">
-    <form #customerForm = "ngForm" (ngSubmit) = "actionOnSubmit(customerForm)" >
+    <form #customerForm = "ngForm" (ngSubmit) = "addCustomer(customerForm)" >
       <div class="row p-0 m-0">
-        <div class="col-lg-auto m-1 pt-3 pb-2">
-          <h6>Nombre</h6>
+        <div class="col-lg-auto m-1 py-4">
+          <h6 *ngIf="isNatural">Nombre(s)</h6>
+          <h6 *ngIf="!isNatural">Nombre</h6>
           <input type="text" class="form-control" name = "name" #name = "ngModel"
-            [(ngModel)] = "customerService.selectedCustomer.name" placeholder = "Nombre">
+          [(ngModel)] = "customerService.selectedPerson.first_name">
         </div>
-        <div
-          *ngIf="costumerService.selectedCustomer.typeCustomer == 'N'"
-             class="col-lg-auto m-1 pt-3 pb-2">
-          <h6>Apellido</h6>
+        <div *ngIf="isNatural" class="col-lg-auto m-1 py-4">
+          <h6>Apellido(s)</h6>
           <input type="text" class="form-control" name = "lastName" #lastName = "ngModel"
-                 [(ngModel)] = "customerService.selectedCustomer.lastName" placeholder = "Apellido">
+                 [(ngModel)] = "customerService.selectedPerson.last_name">
         </div>
-        <div class="col-md-auto m-1 pt-3 pb-2">
+        <div class="col-md-auto m-1 py-4">
           <h6>Tipo de documento</h6>
-          <!--Menu de tipo de documento: C.C-->
+          <div class="select_box">
+            <select name = "type_document"
+                    #type_document = "ngModel" [(ngModel)] = "customerService.selectedPerson.type_document">
+              <option *ngFor = "let types_document of typeDocumentService.typesDocument">
+                {{types_document.type_document}}
+              </option>
+            </select>
+          </div>
         </div>
-        <div class="col-md-auto m-1 pt-3 pb-2">
-          <h6>Documento</h6>
-          <input type="text" class="form-control" name = "_id" #_id = "ngModel"
-            [(ngModel)] = "customerService.selectedCustomer._id" placeholder = "N&uacute;mero de documento">
+        <div class="col-md-auto m-1 py-4">
+          <h6>N&uacute;mero de documento</h6>
+          <input type="text" class="form-control" name = "number_document" #number_document = "ngModel"
+                 [(ngModel)] = "customerService.selectedPerson.number_document">
         </div>
-        <div class="col-md-auto m-1 pt-3 pb-2">
-          <h6>Pais</h6>
-          <!--Menu pais-->
+        <div class="col-md-auto m-1 py-4">
+          <h6>Pa&iacute;s</h6>
+          <div class="select_box">
+            <select>
+              <ng-container *ngFor = "let country of placeService.places; let i = index">
+                <option *ngIf="placeService.places[i].type_place === 'P'" >
+                  {{country.name_place}}
+                </option>
+              </ng-container>
+            </select>
+          </div>
         </div>
-        <div class="col-md-auto m-1 pt-3 pb-2">
+        <div class="col-md-auto m-1 py-4">
+          <h6>Departamento</h6>
+          <div class="select_box">
+            <select >
+              <ng-container *ngFor = "let country of placeService.places; let i = index">
+                <option *ngIf="placeService.places[i].type_place === 'D' " >
+                    {{country.name_place}}
+                </option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-auto m-1 py-4">
           <h6>Ciudad</h6>
-          <!--Menu ciudad-->
+          <div class="select_box">
+            <select>
+              <ng-container *ngFor = "let country of placeService.places; let i = index">
+                <option *ngIf="placeService.places[i].type_place === 'C' " >
+                  {{country.name_place}}
+                </option>
+              </ng-container>
+            </select>
+          </div>
         </div>
-        <div class="col-md-auto m-1 pt-3 pb-2">
+        <div class="col-md-auto m-1 py-4">
           <h6>Direcci&oacute;n</h6>
           <input type="text" class="form-control" name = "address" #address = "ngModel"
-                 [(ngModel)] = "customerService.selectedCustomer.address" placeholder = "Direcci&oacute;n">
+                 [(ngModel)] = "customerService.selectedPerson.address">
         </div>
-        <div class="col-lg-auto m-1 pt-3 pb-2">
+        <div class="col-lg-auto m-1 py-4">
           <h6>Correo electronico</h6>
           <input type="text" class="form-control" name = "email" #email = "ngModel"
-             [(ngModel)] = "customerService.selectedCustomer.email" placeholder = "Correo electr&oacute;nico">
+                 [(ngModel)] = "customerService.selectedPerson.email">
         </div>
-        <div class="col-md-auto m-1 pt-3 pb-2">
+        <div class="col-md-auto m-1 py-4">
           <h6>Tel&eacute;fono</h6>
           <input type="text" class="form-control" name = "telephoneNumber" #telephoneNumber = "ngModel"
-             [(ngModel)] = "customerService.selectedCustomer.telephoneNumber" placeholder = "N&uacute;mero de contacto">
+                 [(ngModel)] = "customerService.selectedPerson.phone">
         </div>
       </div>
       <div class="row p-3 m-1 justify-content-center">
-        <button type="button" class="btn saveButton" onclick="addCustomer(customerForm); customerForm.control.markAsTouched()">
+        <button type="button" class="btn saveButton" onclick="addCustomer(customerForm);">
           <i class="fa fa-plus mr-2"></i>
           <span>Guardar</span>
         </button>

@@ -23,6 +23,7 @@
   outline: none;
   box-shadow: none;
 }
+
 .search-box input::placeholder{
   color: var(--color-text-primary);
 }
@@ -31,7 +32,7 @@
   font-size: 23px;
 }
 
-.new-customer {
+.new-lawyer {
   background: var(--color-primary);
   border-radius: 0%;
   color: var(--color-font);
@@ -111,7 +112,7 @@ tbody td,th {
 
 .circle-options i {
   color: white;
-  font-size: 1.55vw;
+  font-size: 1.25vw;
 }
 
 .pagination > li > a, .pagination >li > span {
@@ -141,7 +142,6 @@ tbody td,th {
 }
 
 .page > a:hover, .page > a:focus {
-  background-blend-mode: color-burn;
   filter: brightness(60%);
 }
 

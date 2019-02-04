@@ -13,13 +13,13 @@
         </div>
       </div>
       <div class = "float-right h-100 d-flex align-items-center">
-        <button class="h-100 btn-lg new-customer" data-toggle="modal" href="#typeNewClientModal">Nuevo Cliente</button>
+        <button class="h-100 btn-lg new-lawyer" data-toggle="modal" href="#typeNewClientModal">Nuevo Cliente</button>
       </div>
     </div>
   </div>
   <hr>
   <div class = "row p-1 m-1 table-responsive">
-    <table>
+    <table *ngIf="customerService.people">
       <!--
       <thead>
         <tr class = "col-lg-12 p-6 m-5 mt-4 ">
@@ -41,34 +41,36 @@
       </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let customer of customerService.customers" class="shadow-sm">
+        <tr *ngFor = "let customer of customerService.people" class="shadow-sm">
           <td scope="row" class="float-left">
             <ul class = "nav h-100 d-flex align-items-center">
               <li class = "square d-flex float-left">
-                <p class="text-icon-customer">{{customer.name.charAt(0)}}</p>
+                <p class="text-icon-customer">{{customer.first_name.charAt(0)}}</p>
               </li>
-              <li>{{customer.name}}</li>
+              <li *ngIf="isNatural(customer)">{{customer.first_name + ' ' + customer.last_name}}</li>
+              <li *ngIf="!isNatural(customer)">{{customer.first_name}}</li>
             </ul>
           </td>
           <td>{{customer.email}}</td>
-          <td>{{customer.telephoneNumber}}</td>
+          <td>{{customer.phone}}</td>
           <td>{{customer.address}}</td>
           <td class="align-items-center">
             <ul class = "nav h-100 d-flex align-items-center float-left" routerLinkActive="active">
               <li class = "nav-item pr-2">
-                <a class = "rounded-circle d-flex align-items-center circle-options" onclick="changeStatus(customer)" role="button">
+                <a class = "rounded-circle d-flex align-items-center circle-options" onclick="changeStatus(customer)"
+                   role="button">
                   <i class = "fa fa-check w-100"></i>
                 </a>
               </li>
               <li class = "nav-item pl-2">
                 <a class = "rounded-circle d-flex align-items-center circle-options"  data-dismiss="modal"
-                   [routerLink] ="['edit-customer',customer._id]" role="button">
+                   onclick="editCustomer(customer)" [routerLink] = "['edit-customer',customer.number_document]" role="button">
                   <i class = "fa fa-eye w-100"></i>
                 </a>
               </li>
               <li class = "nav-item pl-2">
                 <a class = "rounded-circle d-flex align-items-center circle-options"  data-dismiss="modal"
-                   [routerLink] ="['customer-detail',customer._id]" role="button">
+                   onclick="viewCustomer(customer)" [routerLink] = "['customer-detail',customer.number_document]" role="button">
                   <i class = "fa fa-pencil w-100"></i>
                 </a>
               </li>
@@ -134,11 +136,11 @@
           </button>
         </div>
         <div class="nav modal-body justify-content-center " routerLinkActive="active">
-          <button class="nav-link w-50 h-100 mr-4" [routerLink] ="['new-customer','N']">
+          <button class="nav-link w-50 h-100 mr-4" [routerLink] ="['new-customer','N']" data-dismiss="modal">
             <i class="fa fa-user fa-5x"></i>
             <br><span>NATURAL</span>
           </button>
-          <button class="nav-link w-50 h-100 ml-4" [routerLink] = "['new-customer','L']">
+          <button class="nav-link w-50 h-100 ml-4" [routerLink] = "['new-customer','L']" data-dismiss="modal">
             <i class="fa fa-briefcase fa-5x"></i>
             <br><span>LEGAL</span>
           </button>

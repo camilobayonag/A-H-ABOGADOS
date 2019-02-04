@@ -2,11 +2,16 @@
   <div class = "row p-0 m-0">
     <div class = "col-lg-12 p-0 m-0 mt-4 ">
       <div class = "float-left h-100 d-flex align-items-center">
-        <h3 class = "float-left">Abogados</h3>
+        <div class="input-group search-box">
+          <input type="text" class="form-control form-control-lg" placeholder="Buscar Abogado"/>
+          <button class="btn btn-info" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
       </div>
-      <a class = "rounded-circle d-flex align-items-center circle-add">
-        <i class = "fa fa-plus w-100"></i>
-      </a>
+      <div class = "float-right h-100 d-flex align-items-center">
+        <button class="h-100 btn-lg new-lawyer" data-toggle="modal" href="#typeNewClientModal">Nuevo Abogado</button>
+      </div>
     </div>
   </div>
   <hr>

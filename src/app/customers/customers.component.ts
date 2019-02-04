@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import {CustomerService} from '../services/customer.service';
-import {NgForm} from '@angular/forms';
-import {CustomerModel} from '../models/customer.model';
+import { PersonService } from '../services/person.service';
+import { StatusService } from '../services/status.service';
+import { NgForm } from '@angular/forms';
+import PersonModel from '../models/person.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css'],
-  providers: [CustomerService]
+  providers: [PersonService]
 })
 export class CustomersComponent implements OnInit {
 
-  constructor(private customerService: CustomerService) { }
-
+  constructor(private customerService: PersonService, private _route: ActivatedRoute) {}
 
   ngOnInit() {
     this.getCustomers();
@@ -20,13 +21,13 @@ export class CustomersComponent implements OnInit {
 
   addCustomer(form: NgForm) {
     if (form.value._id) {
-      this.customerService.putCustomer(form.value)
+      this.customerService.putPerson(form.value)
         .subscribe(res => {
           this.resertFomr(form);
           this.getCustomers();
         });
     } else {
-      this.customerService.postCustomers(form.value)
+      this.customerService.postPerson(form.value)
         .subscribe(res => {
           this.resertFomr(form);
           this.getCustomers();
@@ -35,20 +36,28 @@ export class CustomersComponent implements OnInit {
   }
 
   getCustomers() {
-    this.customerService.getCustomers()
+    this.customerService.getClients(this._route.snapshot.paramMap.get('type_person'))
       .subscribe(res => {
-        this.customerService.customers = res as CustomerModel[];
-
+        this.customerService.people = res as PersonModel[];
+        console.log(this.customerService.people);
       });
   }
 
-  editCustomers(customer: CustomerModel) {
-    this.customerService.selectedCustomer = customer;
+  isNatural(customer: PersonModel) {
+    return customer.type_rol === 'N';
+  }
+
+  editCustomer(customer: PersonModel) {
+    this.customerService.selectedPerson = customer;
     // this.employeeService.putEmployee(employee._id);
   }
 
+  viewCustomer(customer: PersonModel) {
+    this.customerService.selectedPerson = customer;
+  }
+
   deleteCustomer(_id: string) {
-    this.customerService.deleteCustomer(_id)
+    this.customerService.deletePerson(_id)
       .subscribe(res => {
         this.getCustomers();
       });
@@ -57,7 +66,7 @@ export class CustomersComponent implements OnInit {
   resertFomr(form?: NgForm) {
     if (form) {
       form.reset();
-      this.customerService.selectedCustomer = new CustomerModel();
+      this.customerService.selectedPerson = new PersonModel();
     }
   }
 
